@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img class="logo" src="./assets/logo.jpg">
     <Todo msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -24,5 +24,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.logo{
+  width: 180px;
+  height: 180px;
+  border-radius: 180px;
 }
 </style>
