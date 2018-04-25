@@ -1,8 +1,8 @@
 <template>
   <div class="content">
     <div class="tabs">
-      <div class="tab" :class="{'tab-active': this.data.active==='todo'}" @click="data.active='todo'">DOTO</div>
-      <div class="tab" :class="{'tab-active': this.data.active==='deleted'}" @click="data.active='deleted'">DONE</div>
+      <div class="tab" :class="{'tab-active': this.data.active===status.todo}" @click="data.active=status.todo">DOTO</div>
+      <div class="tab" :class="{'tab-active': this.data.active===status.deleted}" @click="data.active=status.deleted">DONE</div>
     </div>
     <div class="input-group">
       <textarea 
@@ -21,25 +21,29 @@
       <div class="list-item"
         v-for="(item,index) in showlist"
         :key="index">
-          <div class="list-before" v-show="item.status != 'delete'">
+          <div class="list-before" v-show="item.status != status.deleted">
             <i class="iconfont icon-checkboxunpress" 
-               v-show="item.status === 'todo'"
-               @click="item.status='done'">
+               v-show="item.status === status.todo"
+               @click="item.status=status.done">
             </i>
             <i class="iconfont icon-checkboxpress" 
-               v-show="item.status === 'done'"
-               @click="item.status='todo'">
+               v-show="item.status === status.done"
+               @click="item.status=status.todo">
             </i>
           </div>
           <div class="list-content" :class="'list-item-'+item.status">
             {{item.value}}
           </div> 
           <div class="list-after">
-            <div v-show="item.status=='done'">
-              <i class="iconfont icon-delete"></i>
+            <div v-show="item.status==status.done">
+              <button class="btn btn-text">
+                <i class="iconfont icon-hide" @click="hideTodo(item)"></i>
+              </button>
             </div>
-            <div v-show="item.status=='delete'">
-              <i class="iconfont icon-delete" @click="deleteTodo(item)"></i>
+            <div v-show="item.status==status.deleted">
+              <button class="btn btn-text">
+                <i  class="iconfont icon-delete" @click="deleteTodo(item)"></i>
+              </button>
             </div>
           </div>      
       </div>

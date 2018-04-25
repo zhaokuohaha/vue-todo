@@ -10,22 +10,30 @@ type Todo{
   createTime: Date
 }
 */
+
+const status = {
+  todo:"todo",
+  done:"done",
+  deleted:"deleted",
+}
+
 let ls = window.localStorage
 export default {
-  name: 'HelloWorld',
+  name: 'Todo',
   data () {
     return {
+      status:status,
       data:{
         msg: '',
         todo: [],
-        active: 'todo'
+        active: status.todo
       },
     }
   },
   computed:{
     showlist: function() {
-      if(this.data.active === 'todo')
-        return this.data.todo.filter(d => d.status === 'todo' || d.status === 'done')
+      if(this.data.active === status.todo)
+        return this.data.todo.filter(d => d.status === status.todo || d.status === status.done)
       else
         return this.data.todo.filter(d => d.status === this.data.active)
     }
@@ -35,15 +43,19 @@ export default {
       this.data.todo.push(this.newTodo(this.data.msg))
       this.data.msg = ''
     },
-    newTodo: function(value = '', status = 'todo', createTime = new Date()){
+    newTodo: function(value = '', status = "todo", createTime = new Date()){
       return {
         value: value,
         status: status,
         createTime: createTime
       }
     },
+    hideTodo: function(item){
+      item.status = status.deleted
+    },
     deleteTodo: function(item){
-      item.status = 'deleted'
+      var index = this.data.todo.indexOf(item)
+      this.data.todo.splice(index,1)
     },
     saveTodo: function() {
       console.log('save run')
