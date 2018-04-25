@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     addTodo: function() {
-      this.data.todo.push(this.newTodo(this.data.msg))
+      this.data.todo.unshift(this.newTodo(this.data.msg))
       this.data.msg = ''
     },
     newTodo: function(value = '', status = "todo", createTime = new Date()){
@@ -49,6 +49,9 @@ export default {
         status: status,
         createTime: createTime
       }
+    },
+    toggleTodo: function(item){
+      item.status = item.status == status.todo ? status.done : status.todo
     },
     hideTodo: function(item){
       item.status = status.deleted
