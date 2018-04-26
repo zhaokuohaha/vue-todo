@@ -119,4 +119,14 @@
   align-items: stretch;
   margin: 16px auto;
 }
+/* list content style */
+.list-item-done{
+  font-size: 1.2rem;
+  color: rgb(187, 187, 187);
+  font-style: italic;
+  text-decoration: line-through;
+}
+.list-item-deleted{
+  color: rgb(166, 169, 170);
+}
 </style>
