@@ -1,15 +1,8 @@
-/*
-enum Status{
-  todo,
-  done,
-  deleted,
-}
-type Todo{
-  value: String,
-  status: status,
-  createTime: Date
-}
-*/
+const prism = require('markdown-it-prism')
+var md = require('markdown-it')({
+  html: true,
+  linkify: true,
+}).use(prism)
 
 const status = {
   todo:"todo",
@@ -23,6 +16,7 @@ export default {
   data () {
     return {
       status:status,
+      showPreview: false,
       data:{
         msg: '',
         todo: [],
@@ -40,7 +34,8 @@ export default {
   },
   methods: {
     addTodo: function() {
-      this.data.todo.unshift(this.newTodo(this.data.msg))
+      if(this.data.msg)
+        this.data.todo.unshift(this.newTodo(this.data.msg))
       this.data.msg = ''
     },
     newTodo: function(value = '', status = "todo", createTime = new Date()){
@@ -69,6 +64,9 @@ export default {
       if(!!lsdata){
         this.data = lsdata
       }
+    },
+    renderMd(text){
+      return md.render(text)
     }
   },
   watch: {

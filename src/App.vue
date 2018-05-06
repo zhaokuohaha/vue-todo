@@ -17,17 +17,18 @@ export default {
 </script>
 
 <style>
+textarea{
+  font-size: 1.2rem !important;
+  font-family: 'Segoe UI','微软雅黑' !important;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 .logo{
-  width: 180px;
-  height: 180px;
-  border-radius: 180px;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
 }
 </style>
