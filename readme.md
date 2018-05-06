@@ -12,7 +12,7 @@
 ### 计划:
 * [ ] 支持调整列表顺序
 * [ ] 添加已删除列表记录/恢复功能
-* [ ] 添加Markdown支持
+* [x] 添加Markdown支持
 * [ ] 添加数据备份支持(本地备份 OR 线上备份)
 
 ---
@@ -27,5 +27,5 @@ Features:
 ### plan:
 * [ ] support ReOrder Todo List
 * [ ] Can Record/Restore Deleted List
-* [ ] Markdown support
+* [x] Markdown support
 * [ ] Data Backup (Local Backup OR Online Backup)
