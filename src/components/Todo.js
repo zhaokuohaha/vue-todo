@@ -56,7 +56,6 @@ export default {
       this.data.todo.splice(index,1)
     },
     saveTodo: function() {
-      console.log('save run')
       ls.setItem('tododata',JSON.stringify(this.data))
     },
     loadTodo: function() {
