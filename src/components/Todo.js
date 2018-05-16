@@ -52,8 +52,12 @@ export default {
       item.status = status.deleted
     },
     deleteTodo: function(item){
-      var index = this.data.todo.indexOf(item)
-      this.data.todo.splice(index,1)
+      if(item.status == status.todo){
+        this.hideTodo(item)
+      }else{
+        var index = this.data.todo.indexOf(item)
+        this.data.todo.splice(index,1)
+      }
     },
     saveTodo: function() {
       ls.setItem('tododata',JSON.stringify(this.data))

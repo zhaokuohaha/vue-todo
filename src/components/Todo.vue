@@ -45,9 +45,6 @@
             <span class="markdown-body" v-html="renderMd(item.value)"></span>
           </div> 
           <div class="list-after">
-            <div class="list-action" @click="hideTodo(item)" v-show="item.status==status.done">
-                <i class="iconfont icon-hide"></i>
-            </div>
             <div class="list-action"  @click="deleteTodo(item)">
                 <i  class="iconfont icon-delete"></i>
             </div>
@@ -129,12 +126,14 @@
 /* list content style */
 .list-item-done{
   font-size: 1.2rem;
-  color: rgb(187, 187, 187);
   font-style: italic;
   text-decoration: line-through;
+  opacity: .3;
 }
+
+
 .list-item-deleted{
-  color: rgb(166, 169, 170);
+  opacity: .4;
 }
 .h-center{
   display: flex;
