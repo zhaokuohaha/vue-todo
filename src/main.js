@@ -5,8 +5,9 @@ import './css'
 
 Vue.config.productionTip = false
 
-import {Input} from 'element-ui'
+import {Input, Dialog} from 'element-ui'
 Vue.use(Input)
+Vue.use(Dialog)
 
 new Vue({
   render: h => h(App)

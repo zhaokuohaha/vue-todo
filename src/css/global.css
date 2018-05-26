@@ -38,7 +38,7 @@
 
 .list-action{
   cursor: pointer;
-  padding: 16px;
+  padding: 16px 4px;
   /* background-color: thistle; */
 }
 .iconfont{

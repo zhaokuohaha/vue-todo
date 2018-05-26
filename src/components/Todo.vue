@@ -11,7 +11,7 @@
     
     <div class="list">
       <div class="list-item"
-        v-for="(item,index) in showlist"
+      v-for="(item,index) in showlist"
         :key="index">
           <div class="list-before" v-show="item.status != status.deleted">
             <div class="list-action" @click="toggleTodo(item)">
@@ -27,12 +27,28 @@
             <span class="markdown-body" v-html="renderMd(item.value)"></span>
           </div> 
           <div class="list-after">
-            <div class="list-action"  @click="deleteTodo(item)">
+            <div class="list-action" 
+              v-show="item.status === status.todo"
+              @click="editTodo(item)">
+              <i class="iconfont icon-edit"></i>
+            </div>
+            
+            <div class="list-action"
+              v-show="item.status != status.todo"
+              @click="deleteTodo(item)">
                 <i  class="iconfont icon-delete"></i>
             </div>
           </div>      
       </div>
     </div>
+
+    <el-dialog
+      title="编辑"
+      :visible.sync="editdialog">
+      <mdinput 
+        :text.sync="editing.value"
+        @submit="editok"></mdinput>
+    </el-dialog>
   </div>
 </template>
 

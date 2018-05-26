@@ -14,6 +14,8 @@ export default {
   data () {
     return {
       status:status,
+      editdialog: false,
+      editing: {},
       data:{
         msg: '',
         todo: [],
@@ -68,8 +70,14 @@ export default {
         this.data = lsdata
       }
     },
-    renderMd: (text) => renderMd(text)
-   
+    renderMd: (text) => renderMd(text),
+    editTodo: function(item){
+      this.editing = item
+      this.editdialog = true
+    },
+    editok: function(){
+      this.editdialog = false
+    }
   },
   watch: {
     'data.todo': {

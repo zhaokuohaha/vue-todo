@@ -45,6 +45,11 @@ export default {
       this.msg = "";
     },
     renderMd: text => renderMd(text)
+  },
+  watch:{
+    text(val){
+      this.msg = val
+    }
   }
 };
 </script>
