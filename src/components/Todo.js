@@ -1,8 +1,6 @@
-const prism = require('markdown-it-prism')
-var md = require('markdown-it')({
-  html: true,
-  linkify: true,
-}).use(prism)
+import mdinput from './mdinput'
+import {renderMd} from './tools'
+
 
 const status = {
   todo:"todo",
@@ -16,13 +14,15 @@ export default {
   data () {
     return {
       status:status,
-      showPreview: false,
       data:{
         msg: '',
         todo: [],
         active: status.todo
       },
     }
+  },
+  components:{
+    mdinput:mdinput
   },
   computed:{
     showlist: function() {
@@ -68,9 +68,8 @@ export default {
         this.data = lsdata
       }
     },
-    renderMd(text){
-      return md.render(text)
-    }
+    renderMd: (text) => renderMd(text)
+   
   },
   watch: {
     'data.todo': {

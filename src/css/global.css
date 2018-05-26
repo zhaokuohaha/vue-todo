@@ -1,0 +1,104 @@
+
+.tabs{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.tab{
+  flex: 1;
+  padding: 8px;
+}
+.tab-active{
+  border-bottom: 5px #20a0ff solid;
+}
+.content{
+  width: 60%;
+  margin: auto;
+}
+.list-item{
+  display: flex;
+  margin: 8px;
+  font-size: 1.5rem;
+  box-shadow: 1px 1px 1px 1px gainsboro;
+}
+.list-before{
+  min-width: 20px;
+}
+.list-after{
+  display: flex;
+  min-width: 60px;
+}
+.list-content{
+  margin: 8px;
+  width: 0;
+  overflow-wrap: break-word;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.list-action{
+  cursor: pointer;
+  padding: 16px;
+  /* background-color: thistle; */
+}
+.iconfont{
+  font-size: 1.5rem !important;
+}
+.input-group{
+  margin: 16px auto 0;
+}
+/* list content style */
+.list-item-done{
+  font-size: 1.2rem;
+  font-style: italic;
+  text-decoration: line-through;
+  opacity: .3;
+}
+
+
+.list-item-deleted{
+  opacity: .4;
+}
+.h-center{
+  display: flex;
+  align-items: center;
+}
+.md-preview{
+  background-color: #fbfbfb;
+  padding: 8px;
+  text-align: left;
+  border-bottom: #eee solid 1px;
+  /* margin: 8px 0; */
+}
+.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+    max-height: 300px;
+		margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .markdown-body {
+    padding: 15px;
+  }
+}
+
+.btn{
+  font-size: 1rem;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.btn-send{
+  width: 120px !important;
+  border-radius: 0 5px 5px 0;
+}
+.btn-text{
+  background-color: transparent;
+  color: #20a0ff;
+}
+.btn:focus{
+  border: none;
+  outline: none;
+}
