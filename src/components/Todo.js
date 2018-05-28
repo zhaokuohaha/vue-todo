@@ -54,7 +54,8 @@ export default {
       item.status = status.deleted
     },
     deleteTodo: function(item){
-      if(item.status == status.todo){
+      // todo 或者 done 时不直接删除而是隐藏
+      if(item.status == status.todo || item.status == status.done){
         this.hideTodo(item)
       }else{
         var index = this.data.todo.indexOf(item)
