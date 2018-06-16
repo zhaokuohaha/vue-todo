@@ -1,6 +1,7 @@
 import mdinput from './mdinput'
 import {renderMd} from './tools'
-
+import CircleMenu from 'vue-circle-menu'
+import {MessageBox} from 'element-ui'
 
 const status = {
   todo:"todo",
@@ -24,7 +25,8 @@ export default {
     }
   },
   components:{
-    mdinput:mdinput
+    mdinput:mdinput,
+    circleMenu: CircleMenu
   },
   computed:{
     showlist: function() {
@@ -78,6 +80,15 @@ export default {
     },
     editok: function(){
       this.editdialog = false
+    },
+    hideAll: function(){
+      this.data.todo.map(t => {
+        if(t.status == status.done)
+          t.status = status.deleted
+      })
+    },
+    syncData(){
+      MessageBox('同步功能尚未完成')
     }
   },
   watch: {

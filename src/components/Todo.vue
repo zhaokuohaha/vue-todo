@@ -49,6 +49,15 @@
         :text.sync="editing.value"
         @submit="editok"></mdinput>
     </el-dialog>
+
+    <div class="option-menu" v-show="data.active == status.todo">
+      <circle-menu type="top" :number="2" circle :colors="[ '#4fc08d', '#ddd', '#ddd', '#ddd', '#ddd']">
+        <button type="button" slot="item_btn" class="circle-menu-button iconfont icon-plus"></button>
+        <a slot="item_1" class="iconfont icon-delete" @click="hideAll"></a>
+        <a slot="item_2" class="iconfont icon-sync" @click="syncData"></a>
+      </circle-menu>
+    </div>
+
   </div>
 </template>
 
@@ -56,5 +65,20 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.circle-menu-button{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  
+}
 
+.option-menu{
+  position: fixed;
+  right: 50px;
+  bottom: 50px;    
+}
+
+.option-menu a{
+  cursor: pointer;
+}
 </style>
