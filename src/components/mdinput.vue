@@ -3,6 +3,7 @@
     <el-input
         type="textarea"
         class="textarea"
+        id="tinput"
         :autosize="{ minRows: 2, maxRows: 10}"
         placeholder="支持Markdown"
         v-model="msg">
@@ -27,6 +28,7 @@
 
 <script>
 import { renderMd } from "./tools";
+
 export default {
   name: "mdinput",
   data() {
@@ -44,18 +46,41 @@ export default {
       this.$emit("submit");
       this.msg = "";
     },
-    renderMd: text => renderMd(text)
-  },
-  watch:{
-    text(val){
-      this.msg = val
+    renderMd: text => renderMd(text),
+    preventTab: function() {
+      var node = document.getElementById("tinput");
+      node.addEventListener(
+        "keydown",
+        function(e) {
+          if (e.keyCode === 9) {
+            var position = this.selectionStart + 4;
+            this.value =
+              this.value.substr(0, this.selectionStart) +
+              "    " +
+              this.value.substr(this.selectionStart);
+            this.selectionStart = position;
+            this.selectionEnd = position;
+            this.focus();
+            e.preventDefault();
+          }
+        },
+        false
+      );
     }
+  },
+  watch: {
+    text(val) {
+      this.msg = val;
+    }
+  },
+  mounted() {
+    this.preventTab()
   }
 };
 </script>
 
 <style scoped>
-.mdinput{
+.mdinput {
   border: #ddd solid 1px;
   border-radius: 5px;
 }
