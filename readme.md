@@ -7,13 +7,18 @@
 
 
 ### 功能:
-使用`pwa`模板构建, 支持离线使用
+* 使用`pwa`模板构建, 支持离线使用(需要一个备案过的域名)
+* 支持`Markdown`语法
+* 支持任务编辑
+* 支持在文本框内使用`Tab`键缩进
+
+
 
 ### 计划:
 * [ ] 支持调整列表顺序
-* [ ] 添加已删除列表记录/恢复功能
-* [x] 添加Markdown支持
 * [ ] 添加数据备份支持(本地备份 OR 线上备份)
+
+
 
 ---
 
@@ -23,9 +28,11 @@ A `Todo List` single-page application developed using `vue` relies entirely on `
 
 Features:
 * Built using the `pwa` template for offline use
+* Support `Mrkdown` syntax
+* Support Edit Todo item
+* Capture `Tab` key in text area
+
 
 ### plan:
 * [ ] support ReOrder Todo List
-* [ ] Can Record/Restore Deleted List
-* [x] Markdown support
 * [ ] Data Backup (Local Backup OR Online Backup)
